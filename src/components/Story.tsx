@@ -23,8 +23,12 @@ const slides = [
 
 export function Story() {
   const [active, setActive] = useState(0);
+  const [direction, setDirection] = useState<"next" | "prev">("next");
 
-  const goTo = (index: number) => setActive((index + slides.length) % slides.length);
+  const goTo = (index: number, dir: "next" | "prev") => {
+    setDirection(dir);
+    setActive((index + slides.length) % slides.length);
+  };
 
   return (
     <section id="story" className="section-padding bg-secondary-background">
@@ -34,21 +38,26 @@ export function Story() {
         <div className="flex items-center justify-center gap-4 sm:gap-10">
           <button
             type="button"
-            onClick={() => goTo(active - 1)}
+            onClick={() => goTo(active - 1, "prev")}
             aria-label="Previous"
             className="shrink-0 text-2xl text-foreground-muted transition-opacity hover:opacity-60 sm:text-3xl"
           >
             &#8249;
           </button>
 
-          <div className="min-h-[16rem] sm:min-h-[12rem]">
-            <p className="mb-3 font-serif text-lg text-foreground sm:text-xl">{slides[active].heading}</p>
-            <p className="text-base leading-relaxed text-foreground-muted sm:text-lg">{slides[active].text}</p>
+          <div className="min-h-[16rem] overflow-hidden sm:min-h-[12rem]">
+            <div
+              key={active}
+              className={direction === "next" ? "animate-slide-in-from-right" : "animate-slide-in-from-left"}
+            >
+              <p className="mb-3 font-serif text-lg text-foreground sm:text-xl">{slides[active].heading}</p>
+              <p className="text-base leading-relaxed text-foreground-muted sm:text-lg">{slides[active].text}</p>
+            </div>
           </div>
 
           <button
             type="button"
-            onClick={() => goTo(active + 1)}
+            onClick={() => goTo(active + 1, "next")}
             aria-label="Next"
             className="shrink-0 text-2xl text-foreground-muted transition-opacity hover:opacity-60 sm:text-3xl"
           >
@@ -61,7 +70,7 @@ export function Story() {
             <button
               key={i}
               type="button"
-              onClick={() => goTo(i)}
+              onClick={() => goTo(i, i > active ? "next" : "prev")}
               aria-label={`Go to slide ${i + 1}`}
               className={`h-1.5 w-1.5 rounded-full transition-colors ${
                 active === i ? "bg-foreground" : "bg-foreground-muted/40"
