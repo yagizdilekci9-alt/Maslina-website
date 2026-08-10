@@ -1,3 +1,5 @@
+import { CartWidget } from "@/components/CartWidget";
+
 const links = [
   { href: "#story", label: "Our Story" },
   { href: "#sheer-curtains", label: "Sheer Curtains" },
@@ -20,6 +22,7 @@ export function Header() {
             </a>
           ))}
         </nav>
+        <CartWidget className="flex items-center gap-1 text-sm tracking-wide text-white uppercase" />
       </div>
     </header>
   );

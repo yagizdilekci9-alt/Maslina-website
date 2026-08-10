@@ -1,49 +1,72 @@
-export type PillowDesign = {
+export type Category = "sheer-curtains" | "curtain-panels" | "pillows";
+
+export type Product = {
   slug: string;
+  category: Category;
   title: string;
-  image: string;
+  /** exactly 3 images: [main, styled/context, close-up detail] */
+  images: [string, string, string];
 };
 
-export const pillows: PillowDesign[] = [
-  { slug: "tribal-stripe", title: "Tribal Stripe", image: "/images/products/yastik/yastik-01-etnik-cizgili.jpg" },
-  { slug: "woven-diamond", title: "Woven Diamond", image: "/images/products/yastik/yastik-02-orgu-baklava.jpg" },
-  { slug: "arc-sun", title: "Arc & Sun", image: "/images/products/yastik/yastik-03-ark-gunes.jpg" },
-  { slug: "black-trellis", title: "Black Trellis", image: "/images/products/yastik/yastik-04-siyah-desenli.jpg" },
-  { slug: "palm-leaf", title: "Palm Leaf", image: "/images/products/yastik/yastik-05-palmiye-yaprak.jpg" },
-  { slug: "arc-circle", title: "Arc Circle", image: "/images/products/yastik/yastik-06-ark-daire.jpg" },
-  { slug: "terracotta-aztec", title: "Terracotta Aztec", image: "/images/products/yastik/yastik-07-terrakota-aztek.jpg" },
-  { slug: "line-art-face", title: "Line Art Face", image: "/images/products/yastik/yastik-08-cizgi-sanat-yuz.jpg" },
-  { slug: "tufted-diamond", title: "Tufted Diamond", image: "/images/products/yastik/yastik-09-tufted-baklava.jpg" },
-  { slug: "abstract-shapes", title: "Abstract Shapes", image: "/images/products/yastik/yastik-10-soyut-sekiller.jpg" },
+export const categoryLabels: Record<Category, string> = {
+  "sheer-curtains": "Sheer Curtains",
+  "curtain-panels": "Curtain Panels",
+  pillows: "Pillows",
+};
+
+const pillowData: { slug: string; title: string; file: string }[] = [
+  { slug: "tribal-stripe", title: "Tribal Stripe Pillow", file: "yastik-01-etnik-cizgili" },
+  { slug: "woven-diamond", title: "Woven Diamond Pillow", file: "yastik-02-orgu-baklava" },
+  { slug: "arc-sun", title: "Arc & Sun Pillow", file: "yastik-03-ark-gunes" },
+  { slug: "black-trellis", title: "Black Trellis Pillow", file: "yastik-04-siyah-desenli" },
+  { slug: "palm-leaf", title: "Palm Leaf Pillow", file: "yastik-05-palmiye-yaprak" },
+  { slug: "arc-circle", title: "Arc Circle Pillow", file: "yastik-06-ark-daire" },
+  { slug: "terracotta-aztec", title: "Terracotta Aztec Pillow", file: "yastik-07-terrakota-aztek" },
+  { slug: "line-art-face", title: "Line Art Face Pillow", file: "yastik-08-cizgi-sanat-yuz" },
+  { slug: "tufted-diamond", title: "Tufted Diamond Pillow", file: "yastik-09-tufted-baklava" },
+  { slug: "abstract-shapes", title: "Abstract Shapes Pillow", file: "yastik-10-soyut-sekiller" },
 ];
 
-export type TulSegments = {
-  slug: string;
-  title: string;
-  drape: string;
-  ortam: string;
-  detay: string;
-};
-
-export const tulUrunleri: TulSegments[] = [
+export const products: Product[] = [
   {
-    slug: "hummingbird-leaf",
+    slug: "hummingbird-leaf-sheer-curtain",
+    category: "sheer-curtains",
     title: "Hummingbird & Leaf Sheer Curtain",
-    drape: "/images/products/tul-perde/tul-01-kuslu-yaprak/drape.jpg",
-    ortam: "/images/products/tul-perde/tul-01-kuslu-yaprak/ortam.jpg",
-    detay: "/images/products/tul-perde/tul-01-kuslu-yaprak/detay.jpg",
+    images: [
+      "/images/products/tul-perde/tul-01-kuslu-yaprak/ortam.jpg",
+      "/images/products/tul-perde/tul-01-kuslu-yaprak/drape.jpg",
+      "/images/products/tul-perde/tul-01-kuslu-yaprak/detay.jpg",
+    ],
   },
+  {
+    slug: "natural-linen-curtain-panel",
+    category: "curtain-panels",
+    title: "Natural Linen Curtain Panel",
+    images: [
+      "/images/products/fon-perde/fon-01-linen-panel/ortam.jpg",
+      "/images/products/fon-perde/fon-01-linen-panel/drape.jpg",
+      "/images/products/fon-perde/fon-01-linen-panel/detay.jpg",
+    ],
+  },
+  ...pillowData.map((p) => ({
+    slug: p.slug,
+    category: "pillows" as Category,
+    title: p.title,
+    images: [
+      `/images/products/yastik/${p.file}.jpg`,
+      `/images/products/yastik/${p.file}-studio.jpg`,
+      `/images/products/yastik/${p.file}-detail.jpg`,
+    ] as [string, string, string],
+  })),
 ];
 
-export const fonUrunleri: TulSegments[] = [
-  {
-    slug: "natural-linen-panel",
-    title: "Natural Linen Curtain Panel",
-    drape: "/images/products/fon-perde/fon-01-linen-panel/drape.jpg",
-    ortam: "/images/products/fon-perde/fon-01-linen-panel/ortam.jpg",
-    detay: "/images/products/fon-perde/fon-01-linen-panel/detay.jpg",
-  },
-];
+export function getProduct(slug: string): Product | undefined {
+  return products.find((p) => p.slug === slug);
+}
+
+export function productsByCategory(category: Category): Product[] {
+  return products.filter((p) => p.category === category);
+}
 
 export const heroVideoUrl =
   "https://video.wixstatic.com/video/1896b4_4b9325ca773240a7b25b1600b0b87909/1080p/mp4/file.mp4";
