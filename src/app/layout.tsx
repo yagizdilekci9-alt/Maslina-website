@@ -15,15 +15,15 @@ const andadaProBody = Andada_Pro({
 });
 
 export const metadata: Metadata = {
-  title: "Maslina Tekstil",
+  title: "Maslina Home",
   description:
-    "Türkiye'de özenle üretilen doğal kumaşlardan tül perde, fon perde ve yastıklar.",
+    "Sheer curtains, curtain panels and pillows made from natural fabrics, crafted with care in Turkey.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
-      lang="tr"
+      lang="en"
       className={`${andadaPro.variable} ${andadaProBody.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">{children}</body>
