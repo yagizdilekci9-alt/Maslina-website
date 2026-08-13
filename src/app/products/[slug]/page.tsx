@@ -31,7 +31,7 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
           <h1 className="font-serif text-3xl">{product.title}</h1>
           <p className="text-sm leading-relaxed text-foreground-muted">
             Crafted from natural, breathable fabric and finished by hand in Turkey. Part of the
-            Maslina Home collection.
+            Fabricasa Home collection.
           </p>
           <div className="mt-4 max-w-xs">
             <AddToCartButton slug={product.slug} title={product.title} image={product.images[0]} />

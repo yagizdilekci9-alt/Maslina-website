@@ -13,7 +13,7 @@ export function Header() {
     <header className="absolute top-0 z-20 w-full">
       <div className="page-width flex items-center justify-between py-6">
         <a href="#" className="text-2xl tracking-[0.15em] text-white uppercase">
-          Maslina Home
+          Fabricasa Home
         </a>
         <nav className="hidden gap-8 text-sm tracking-wide text-white uppercase md:flex">
           {links.map((link) => (

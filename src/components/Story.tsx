@@ -5,7 +5,7 @@ import { useState } from "react";
 const slides = [
   {
     heading: "Chosen with care",
-    text: "At Maslina Home, every fabric begins its journey long before it reaches your window or sofa. We hand-select each thread, each weave, and each finish with the same care our family has practiced for generations, refusing to let convenience compromise the quality of what we bring into your home.",
+    text: "At Fabricasa Home, every fabric begins its journey long before it reaches your window or sofa. We hand-select each thread, each weave, and each finish with the same care our family has practiced for generations, refusing to let convenience compromise the quality of what we bring into your home.",
   },
   {
     heading: "Rooted in Turkish craft",
