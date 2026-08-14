@@ -28,7 +28,6 @@ const pillowData: {
     images: [
       "/images/products/yastik/yastik-01-dugumlu-jut.jpg",
       "/images/products/yastik/yastik-01-dugumlu-jut-studio.jpg",
-      "/images/products/yastik/yastik-01-dugumlu-jut-detail.jpg",
     ],
     description:
       "Hand-knotted jute threads trace soft vertical lines across natural linen, adding warmth and texture to any sofa or bed. Finished with a hidden zip closure and a plush, feather-blend insert for a full, inviting shape that never looks flat.",
