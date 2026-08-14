@@ -30,9 +30,15 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
           </p>
           <h1 className="font-serif text-3xl">{product.title}</h1>
           <p className="text-sm leading-relaxed text-foreground-muted">
-            Crafted from natural, breathable fabric and finished by hand in Turkey. Part of the
-            Fabricasa Home collection.
+            {product.description ??
+              "Crafted from natural, breathable fabric and finished by hand in Turkey. Part of the Fabricasa Home collection."}
           </p>
+          {product.dimensions && (
+            <div className="border-border border-t pt-4">
+              <p className="text-xs tracking-[0.2em] text-foreground-muted uppercase">Dimensions</p>
+              <p className="mt-1 text-sm text-foreground">{product.dimensions}</p>
+            </div>
+          )}
           <div className="mt-4 max-w-xs">
             <AddToCartButton slug={product.slug} title={product.title} image={product.images[0]} />
           </div>

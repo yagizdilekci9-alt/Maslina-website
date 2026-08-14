@@ -6,6 +6,8 @@ export type Product = {
   title: string;
   /** exactly 3 images: [main, styled/context, close-up detail] */
   images: [string, string, string];
+  description?: string;
+  dimensions?: string;
 };
 
 export const categoryLabels: Record<Category, string> = {
@@ -14,8 +16,21 @@ export const categoryLabels: Record<Category, string> = {
   pillows: "Pillows",
 };
 
-const pillowData: { slug: string; title: string; file: string }[] = [
-  { slug: "tribal-stripe", title: "Tribal Stripe Pillow", file: "yastik-01-etnik-cizgili" },
+const pillowData: {
+  slug: string;
+  title: string;
+  file: string;
+  description?: string;
+  dimensions?: string;
+}[] = [
+  {
+    slug: "knotted-jute-stripe",
+    title: "Knotted Jute Stripe Pillow",
+    file: "yastik-01-dugumlu-jut",
+    description:
+      "Hand-knotted jute threads trace soft vertical lines across natural linen, adding warmth and texture to any sofa or bed. Finished with a hidden zip closure and a plush, feather-blend insert for a full, inviting shape that never looks flat.",
+    dimensions: "45 × 45 cm",
+  },
   { slug: "woven-diamond", title: "Woven Diamond Pillow", file: "yastik-02-orgu-baklava" },
   { slug: "arc-sun", title: "Arc & Sun Pillow", file: "yastik-03-ark-gunes" },
   { slug: "black-trellis", title: "Black Trellis Pillow", file: "yastik-04-siyah-desenli" },
@@ -57,6 +72,8 @@ export const products: Product[] = [
       `/images/products/yastik/${p.file}-studio.jpg`,
       `/images/products/yastik/${p.file}-detail.jpg`,
     ] as [string, string, string],
+    description: p.description,
+    dimensions: p.dimensions,
   })),
 ];
 
