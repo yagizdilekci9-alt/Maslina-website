@@ -3,7 +3,7 @@ export function Footer() {
     <footer id="contact" className="section-padding bg-foreground text-background">
       <div className="page-width flex flex-col items-center gap-2 text-center">
         <p className="text-xl tracking-[0.2em] uppercase">Fabricasa Home</p>
-        <p className="text-sm opacity-70">Sheer curtains, curtain panels and pillows, crafted with care in Turkey</p>
+        <p className="text-sm opacity-70">Sheer curtains and pillows, crafted with care in Turkey</p>
 
         <div className="mt-6 flex flex-col items-center gap-1 text-sm opacity-90">
           <p>Yenidoğan OSB Mahallesi, Gürpınar Cad. No:9, 16580 Gürsu/Bursa</p>

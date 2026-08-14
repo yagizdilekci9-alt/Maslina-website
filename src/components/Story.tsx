@@ -13,7 +13,7 @@ const slides = [
   },
   {
     heading: "Checked by hand",
-    text: "From our sheer curtains to our curtain panels and pillows, every product moves through our production line under close, hands-on supervision. Nothing leaves our workshop without being checked by hand, seam by seam, so that the piece arriving at your door meets the same standard we hold in our own homes.",
+    text: "From our sheer curtains to our pillows, every product moves through our production line under close, hands-on supervision. Nothing leaves our workshop without being checked by hand, seam by seam, so that the piece arriving at your door meets the same standard we hold in our own homes.",
   },
   {
     heading: "Growing our reach",

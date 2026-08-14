@@ -11,8 +11,7 @@ export default function Home() {
       <Hero />
       <Story />
       <CategorySection id="sheer-curtains" category="sheer-curtains" title="Sheer Curtains" />
-      <CategorySection id="curtain-panels" category="curtain-panels" title="Curtain Panels" tinted />
-      <CategorySection id="pillows" category="pillows" title="Pillow Collection" />
+      <CategorySection id="pillows" category="pillows" title="Pillow Collection" tinted />
       <Footer />
     </div>
   );

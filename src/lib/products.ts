@@ -1,45 +1,72 @@
-export type Category = "sheer-curtains" | "curtain-panels" | "pillows";
+export type Category = "sheer-curtains" | "pillows";
 
 export type Product = {
   slug: string;
   category: Category;
   title: string;
-  /** exactly 3 images: [main, styled/context, close-up detail] */
-  images: [string, string, string];
+  /** [main product photo, styled/in-room photo, optional close-up detail] */
+  images: string[];
   description?: string;
   dimensions?: string;
 };
 
 export const categoryLabels: Record<Category, string> = {
   "sheer-curtains": "Sheer Curtains",
-  "curtain-panels": "Curtain Panels",
   pillows: "Pillows",
 };
 
 const pillowData: {
   slug: string;
   title: string;
-  file: string;
-  description?: string;
-  dimensions?: string;
+  images: string[];
+  description: string;
+  dimensions: string;
 }[] = [
   {
     slug: "knotted-jute-stripe",
     title: "Knotted Jute Stripe Pillow",
-    file: "yastik-01-dugumlu-jut",
+    images: [
+      "/images/products/yastik/yastik-01-dugumlu-jut.jpg",
+      "/images/products/yastik/yastik-01-dugumlu-jut-studio.jpg",
+      "/images/products/yastik/yastik-01-dugumlu-jut-detail.jpg",
+    ],
     description:
       "Hand-knotted jute threads trace soft vertical lines across natural linen, adding warmth and texture to any sofa or bed. Finished with a hidden zip closure and a plush, feather-blend insert for a full, inviting shape that never looks flat.",
     dimensions: "45 × 45 cm",
   },
-  { slug: "woven-diamond", title: "Woven Diamond Pillow", file: "yastik-02-orgu-baklava" },
-  { slug: "arc-sun", title: "Arc & Sun Pillow", file: "yastik-03-ark-gunes" },
-  { slug: "black-trellis", title: "Black Trellis Pillow", file: "yastik-04-siyah-desenli" },
-  { slug: "palm-leaf", title: "Palm Leaf Pillow", file: "yastik-05-palmiye-yaprak" },
-  { slug: "arc-circle", title: "Arc Circle Pillow", file: "yastik-06-ark-daire" },
-  { slug: "terracotta-aztec", title: "Terracotta Aztec Pillow", file: "yastik-07-terrakota-aztek" },
-  { slug: "line-art-face", title: "Line Art Face Pillow", file: "yastik-08-cizgi-sanat-yuz" },
-  { slug: "tufted-diamond", title: "Tufted Diamond Pillow", file: "yastik-09-tufted-baklava" },
-  { slug: "abstract-shapes", title: "Abstract Shapes Pillow", file: "yastik-10-soyut-sekiller" },
+  {
+    slug: "coiled-rope",
+    title: "Coiled Rope Pillow",
+    images: [
+      "/images/products/yastik/yastik-02-sarmal-halat.jpg",
+      "/images/products/yastik/yastik-02-sarmal-halat-studio.jpg",
+    ],
+    description:
+      "Bold, hand-embroidered loops coil and cross over soft natural linen, creating a sculptural, tactile pattern that catches the light from every angle. Finished with a hidden zip closure and a plush, feather-blend insert for a full, inviting shape.",
+    dimensions: "45 × 45 cm",
+  },
+  {
+    slug: "coral-branch",
+    title: "Coral Branch Pillow",
+    images: [
+      "/images/products/yastik/yastik-03-mercan-dal.jpg",
+      "/images/products/yastik/yastik-03-mercan-dal-studio.jpg",
+    ],
+    description:
+      "Delicate tufted branches spread like coral across warm, textured linen, framed by a clean piped edge for a refined, gallery-quality finish. Finished with a hidden zip closure and a plush, feather-blend insert for a full, inviting shape.",
+    dimensions: "45 × 45 cm",
+  },
+  {
+    slug: "wandering-line",
+    title: "Wandering Line Pillow",
+    images: [
+      "/images/products/yastik/yastik-04-dalgali-cizgi.jpg",
+      "/images/products/yastik/yastik-04-dalgali-cizgi-studio.jpg",
+    ],
+    description:
+      "A single continuous thread winds and curves freely across soft natural linen, tracing an organic, hand-drawn pattern that feels both playful and refined. Finished with a hidden zip closure and a plush, feather-blend insert for a full, inviting shape.",
+    dimensions: "45 × 45 cm",
+  },
 ];
 
 export const products: Product[] = [
@@ -53,25 +80,11 @@ export const products: Product[] = [
       "/images/products/tul-perde/tul-01-kuslu-yaprak/detay.jpg",
     ],
   },
-  {
-    slug: "natural-linen-curtain-panel",
-    category: "curtain-panels",
-    title: "Natural Linen Curtain Panel",
-    images: [
-      "/images/products/fon-perde/fon-01-linen-panel/ortam.jpg",
-      "/images/products/fon-perde/fon-01-linen-panel/drape.jpg",
-      "/images/products/fon-perde/fon-01-linen-panel/detay.jpg",
-    ],
-  },
   ...pillowData.map((p) => ({
     slug: p.slug,
     category: "pillows" as Category,
     title: p.title,
-    images: [
-      `/images/products/yastik/${p.file}.jpg`,
-      `/images/products/yastik/${p.file}-studio.jpg`,
-      `/images/products/yastik/${p.file}-detail.jpg`,
-    ] as [string, string, string],
+    images: p.images,
     description: p.description,
     dimensions: p.dimensions,
   })),

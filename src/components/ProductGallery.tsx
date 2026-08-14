@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 
-export function ProductGallery({ images, title }: { images: [string, string, string]; title: string }) {
+export function ProductGallery({ images, title }: { images: string[]; title: string }) {
   const [active, setActive] = useState(0);
 
   return (
@@ -11,7 +11,7 @@ export function ProductGallery({ images, title }: { images: [string, string, str
       <div className="relative aspect-square w-full overflow-hidden bg-field">
         <Image src={images[active]} alt={title} fill sizes="(min-width: 1024px) 50vw, 100vw" className="object-cover" priority />
       </div>
-      <div className="grid grid-cols-3 gap-3">
+      <div className={`grid gap-3 ${images.length === 2 ? "grid-cols-2" : "grid-cols-3"}`}>
         {images.map((src, i) => (
           <button
             key={src}

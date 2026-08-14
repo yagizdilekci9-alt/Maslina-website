@@ -3,7 +3,6 @@ import { CartWidget } from "@/components/CartWidget";
 const links = [
   { href: "#story", label: "Our Story" },
   { href: "#sheer-curtains", label: "Sheer Curtains" },
-  { href: "#curtain-panels", label: "Curtain Panels" },
   { href: "#pillows", label: "Pillows" },
   { href: "#contact", label: "Contact" },
 ];

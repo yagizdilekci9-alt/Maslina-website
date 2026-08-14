@@ -18,7 +18,7 @@ const andadaProBody = Andada_Pro({
 export const metadata: Metadata = {
   title: "Fabricasa Home",
   description:
-    "Sheer curtains, curtain panels and pillows made from natural fabrics, crafted with care in Turkey.",
+    "Sheer curtains and pillows made from natural fabrics, crafted with care in Turkey.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
